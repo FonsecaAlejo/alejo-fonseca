@@ -1,0 +1,18 @@
+<h1 class="fw-bold text-light text-center pt-5">All images</h1>
+<div *ngIf="marsPhotos.length !== 0" class="container">
+
+    <div class="row">
+        <ng-container *ngFor="let item of marsPhotos">
+
+            <div class="col">
+                <app-figure [img]="item.img_src" [title]="item.rover.name" [body]="item.earth_date.toString()">
+                </app-figure>
+            </div>
+
+        </ng-container>
+    </div>
+
+</div>
+<div class="text-center">
+    <app-spinner *ngIf="loading"></app-spinner>
+</div>

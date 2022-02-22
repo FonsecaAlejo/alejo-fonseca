@@ -1,0 +1,23 @@
+<h1 class="fw-bold text-light text-center pt-5">Mars filter</h1>
+<div class="btn-group" role="group" aria-label="Basic example">
+    <button type="button" (click)="getMarsPhotosFilter('curiosity')" class="btn btn-primary">Curiosity</button>
+    <button type="button" (click)="getMarsPhotosFilter('opportunity')" class="btn btn-primary">Opportunity</button>
+    <button type="button" (click)="getMarsPhotosFilter('spirit')" class="btn btn-primary">Spirit</button>
+</div>
+<div class="container mt-5">
+
+    <div class="row" *ngIf="marsPhotos.length !== 0">
+        <ng-container *ngFor="let item of marsPhotos">
+
+            <div class="col">
+                <app-figure [img]="item.img_src" [title]="item.rover.name" [body]="item.earth_date.toString()">
+                </app-figure>
+            </div>
+
+        </ng-container>
+    </div>
+    <div class="text-center">
+        <app-spinner *ngIf="loading"></app-spinner>
+    </div>
+
+</div>
